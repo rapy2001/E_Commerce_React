@@ -9,6 +9,7 @@
     --colorLite:rgba(51, 153, 255,.7);
     --textFamily:"Quicksand",sans-serif;
     --tranVal:.2s all linear;
+    --shadow:0px 0px 5px rgba(0,0,0,.5);
     --myH:calc(100vh - 12vh);
     --myBackGround:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url("https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
@@ -16,7 +17,7 @@ body{
     margin-top:7vh;
 }
 .nav{
-    border:1px solid red;
+    /* border:1px solid red; */
     box-sizing: border-box;
     height:7vh;
     width:100vw;
@@ -27,19 +28,21 @@ body{
     font-family:var(--textFamily);
     position:fixed;
     top:0px;
-    background-color:white;
+    background-color:var(--mainColor);
     z-index:100;
+    
 }
 
 .nav_box_1{
     display:flex;
-    align-items:center
+    align-items:center;
+    
 }
 
 .brnd{
     text-decoration: none;
     font-weight:100;
-    color:var(--mainColor);
+    color:white;
 }
 
 .nav_box_2{
@@ -53,30 +56,30 @@ body{
 .nav_box_2 div{
     box-sizing: border-box;
     width:2rem;
-    height:.3rem;
+    height:.25rem;
     margin-top:.3rem;
     margin-bottom:.3rem;
-    background-color:var(--colorLite);
+    background-color:rgba(255,255,255,.9);
     transition:var(--tranVal);
 }
 .nav_box_2:hover div{
     /* border:1px solid red; */
-    background-color:var(--mainColor);
+    background-color:rgba(255,255,255,1);
 }
 .nav_box_3{
-    border:1px solid red;
+    /* border:1px solid red; */
     position:absolute;
     top:100px;
     right:0px;
 }
 .register{
-    border:1px solid red;
+    /* border:1px solid red; */
     box-sizing: border-box;
     height:var(--myH);
     display:flex;
 }
 .register_box_1{
-    border:1px solid red;
+    /* border:1px solid red; */
     flex-basis:50%;
     flex-shrink:0;
     background:var(--myBackGround);
@@ -93,7 +96,114 @@ body{
     font-size:2.5rem;
 }
 .register_box_2{
-    border:1px solid red;
+    /* border:1px solid red; */
     flex-basis:50%;
     flex-shrink:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    /* border:1px solid red; */
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-family:var(--textFamily);
+    box-sizing: border-box;
+    width:25vw;
+    height:50vh;
+    padding-top:2rem;
+}
+.form h3{
+    font-weight:100;
+    color:var(--mainColor);
+    font-size:1.5rem;
+    text-align:center;
+    margin-bottom:2rem;
+}
+.form input{
+    width:16vw;
+    outline:none;
+    font-family:var(--mainColor);
+    padding:.5rem 1rem;
+    margin-top:.5rem;
+    margin-bottom:.5rem;
+    border:1.2px solid var(--mainColor);
+    opacity:.5;
+    transition:var(--tranVal);
+}
+.form input:hover{
+    cursor:pointer;
+    opacity:.8;
+}
+.form input:focus{
+    cursor:text;
+    opacity:1;
+}
+.form button{
+    font-family:var(--textFamily);
+    background-color:transparent;
+    outline:none;
+    padding:.5rem 1.2rem;
+    font-size:.8rem;
+    color:var(--mainColor);
+    border:1.5px solid var(--mainColor);
+    transition:var(--tranVal);
+    margin-top:1rem;
+}
+.form button:hover{
+    cursor:pointer;
+    background-color:var(--mainColor);
+    color:white;
+}
+.form h5{
+    font-weight:100;
+    margin-top:1rem;
+    margin-bottom:1rem;
+}
+.link{
+    text-decoration:none;
+    color:var(--colorLite);
+    transition: var(--tranVal);
+}
+.link:hover{
+    cursor:pointer;
+    color:var(--mainColor);
+}
+.red{
+    color:red;
+}
+.success{
+    border:1.5px solid rgb(89, 179, 0);
+    box-sizing: border-box;
+    height:7vh;
+    width:20vw;
+    display:flex;
+    align-items: center;
+    color:rgb(89, 179, 0);
+    justify-content: center;
+    margin-bottom:2rem;
+}
+.failure{
+    border:1.5px solid red;
+    box-sizing: border-box;
+    height:7vh;
+    width:25vw;
+    font-weight:100;
+    display:flex;
+    align-items: center;
+    color:red;
+    justify-content: center;
+    margin-bottom:2rem;
+}
+.footer{
+    background-color:var(--mainColor);
+    box-sizing: border-box;
+    height:5vh;
+    font-family:var(--textFamily);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:100;
+    color:white;
 }
