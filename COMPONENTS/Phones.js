@@ -36,11 +36,11 @@ class Phones extends React.Component
             this.state.gadgets.forEach((gadget,ind)=>{
                 let linkVal = "/api/gadget/" + gadget._id + "/show";
                 items.push(
-                <div key = {ind}>
+                <div key = {ind} className = "gadgetCard">
                     <img src = {gadget.imageUrl} alt="error"/>
-                    <h3>Name: {gadget.gadgetName}</h3>
-                    <h3>Price: $ {gadget.price}</h3>
-                    <Link to = {linkVal}>Learn More</Link>
+                    <h3>{gadget.gadgetName}</h3>
+                    <h3> $ {gadget.price}</h3>
+                    <h4><Link to = {linkVal} className = "link">Learn More</Link></h4>
                 </div>
                 )
             })
@@ -49,15 +49,18 @@ class Phones extends React.Component
         {
             if(items.length === 0)
             {
-                return(<div>
-                    <h3>Loading ...</h3>
+                return(<div className = "gadgetContainer">
+                    <h3 className = "failure">Loading ...</h3>
                 </div>)
             }
             else
             {
                 return(
-                    <div>
-                        {items}
+                    <div className = "gadgetContainer">
+                        <h2>Our Phones</h2>
+                        <div className = "gadgetBox">
+                            {items}
+                        </div>
                     </div>
                 )
             }
@@ -65,8 +68,8 @@ class Phones extends React.Component
         else
         {
             return(
-                <div>
-                    <h3>Internal Server Error.</h3>
+                <div className = "gadgetContainer">
+                    <h3 className = "failure">Internal Server Error.</h3>
                 </div>
             )
         }

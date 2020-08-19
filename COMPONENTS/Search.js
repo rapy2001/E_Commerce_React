@@ -69,11 +69,11 @@ class Search extends React.Component
                 {
                     let linkVal = "/api/gadget/" + results[i]._id + "/show";
                     rst.push(
-                        <div key = {i}>
+                        <div key = {i} className = "gadgetCard">
                             <img src = {results[i].imageUrl} alt="error"/>
                             <h3>Name: {results[i].gadgetName}</h3>
                             <h3>Price: $ {results[i].price}</h3>
-                            <Link to = {linkVal}>Learn More</Link>
+                            <h4><Link to = {linkVal} className = "link">Learn More</Link></h4>
                         </div>
                     )
                 }

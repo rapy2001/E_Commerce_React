@@ -265,8 +265,8 @@ body{
     background-position:center center;
 }
 .search_container{
-    border:1px solid red;
-    height:var(--myH);
+    /* border:1px solid red; */
+    height:130vh;;
     
 }
 .search_form_container{
@@ -279,5 +279,117 @@ body{
     justify-content: center;
 }
 .search_results{
+    /* border:1px solid red; */
+    box-sizing: border-box;
+    overflow-y:auto;
+    width:100%;
+    height:80vh;
+    padding:0rem 3rem;
+}
+.search_results h5{
+    color:var(--mainColor);
+    font-family:var(--textFamily);
+    font-weight:100;
+    font-size:1.2rem;
+    text-align:center;
+    margin-bottom:1.5rem;
+}
+.gadgetContainer{
+    height:var(--myH);
+    /* border:1px solid red; */
+    padding-top: 2.5rem;
+    
+}
+.gadgetContainer h2{
+    font-family:var(--textFamily);
+    text-align:center;
+    font-weight:100;
+    color:var(--mainColor);
+    margin-bottom:2.5rem;
+}
+.gadgetBox{
+    /* border:1px solid red; */
+    display:flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    overflow-y:auto;
+    height:70vh;
+    padding-left:3rem;
+    padding-right:3rem;
+    padding-top:1rem;
+}
+.gadgetCard{
+    border:1px solid black;
+    box-sizing:border-box;
+    width:12vw;
+    height:35vh;
+    font-family:var(--textFamily);
+    overflow:hidden;
+    border-radius:1rem;
+    transition:var(--tranVal);
+    transform:scale(1);
+    background-color: white;
+}
+.gadgetCard h3{
+    
+    font-weight:100;
+    font-size:1rem;
+    margin-top:.5rem;
+    text-align: center;
+}
+.gadgetCard h4{
+    font-weight:100;
+    margin-top:1.5rem;
+    text-align:center;
+}
+.gadgetCard h4 .link{
+    border:1.5px solid var(--mainColor);
+    padding:.3rem .8rem;
+    color:var(--mainColor);
+    transition:var(--tranVal);
+    border-radius:.22rem;
+}
+.gadgetCard h4 .link:hover{
+    cursor:pointer;
+    background-color:var(--mainColor);
+    color:white;
+}
+.gadgetCard:hover{
+    cursor:pointer;
+    box-shadow:0px 8px 5px rgba(0,0,0,.3);
+    transform:scale(1.05);
+    border:1px solid transparent;
+}
+.gadgetCard img{
+    box-sizing: border-box;
+    width:12vw;
+    height:20vh;
+}
+.gadgetFull_container{
     border:1px solid red;
+    display:flex;
+    font-family:var(--textFamily);
+    box-sizing: border-box;
+    height:var(--myH);
+
+}
+.gadgetFull_box_1{
+    /* border:1px solid red; */
+    flex-basis:40%;
+    flex-shrink:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.gadgetFull_box_2{
+    border:1px solid red;
+    flex-basis:60%;
+    flex-shrink:0;
+}
+.gadgetFull_box_1 img{
+    box-sizing: border-box;
+    width:25vw;
+    height:25vh;
+    padding:.2rem;
+    box-shadow:0px 0px 3px rgba(0,0,0,.5) ;   
 }

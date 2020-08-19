@@ -126,18 +126,18 @@ class GadgetFull extends React.Component
                 let updLink = "/api/gadget/" + this.state.data.gadget._id +"/update";
                 // console.log(this.props);
                 return(
-                    <div>
-                        <div>
+                    <div className = "gadgetFull_container">
+                        <div className = "gadgetFull_box_1">
                             <img src = {this.state.data.gadget.imageUrl} alt = "error"/>
                         </div>
-                        <div>
-                            {this.state.crtScs ? <h4>Added to cart successfully</h4> : null}
-                            {this.state.crtErr ? <h4>Could not add to  cart Please try again.</h4> : null}
+                        <div className = "gadgetFull_box_2">
+                            {this.state.crtScs ? <h4 className = "success">Added to cart successfully</h4> : null}
+                            {this.state.crtErr ? <h4 className = "failure">Could not add to  cart Please try again.</h4> : null}
                             {this.props.isLoggedIn ? (this.props.crntUser.username === "Admin" ? <Link to ={updLink}>Update Details</Link>: null) :null}
                             <h1> {this.state.data.gadget.gadgetName} </h1>
                             <h3> $ {this.state.data.gadget.price} </h3>
                             {this.state.data.gadget.amount > 0 ? <h4> In Stock </h4> : <h4 >Out of Stock </h4>}
-                            {this.state.data.gadget.amount  > 0 ? this.props.isLoggedIn ? <button onClick ={this.add}> Add to Cart </button> : <h4> Please Log In to order. </h4> : <h4> Out of Stock </h4>}
+                            {this.state.data.gadget.amount  > 0 ? this.props.isLoggedIn ? <button onClick ={this.add}> Add to Cart </button> : <h4 className = "failure"> Please Log In to order. </h4> : <h4> Out of Stock </h4>}
                             {this.props.isLoggedIn ? <Link to = {linkVal}> Add a Review </Link> : null}
                             <h3>Reviews</h3>
                             {this.state.dltScs ? <h4>Review deleted.</h4> : null}
