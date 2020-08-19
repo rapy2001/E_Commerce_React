@@ -136,13 +136,14 @@ class GadgetFull extends React.Component
                             {this.props.isLoggedIn ? (this.props.crntUser.username === "Admin" ? <Link to ={updLink}>Update Details</Link>: null) :null}
                             <h1> {this.state.data.gadget.gadgetName} </h1>
                             <h3> $ {this.state.data.gadget.price} </h3>
-                            {this.state.data.gadget.amount > 0 ? <h4> In Stock </h4> : <h4 >Out of Stock </h4>}
-                            {this.state.data.gadget.amount  > 0 ? this.props.isLoggedIn ? <button onClick ={this.add}> Add to Cart </button> : <h4 className = "failure"> Please Log In to order. </h4> : <h4> Out of Stock </h4>}
-                            {this.props.isLoggedIn ? <Link to = {linkVal}> Add a Review </Link> : null}
+                            {this.state.data.gadget.amount > 0 ? <h4> In Stock </h4> : <h4>Out of Stock </h4>}
+                            {this.state.data.gadget.amount  > 0 ? this.props.isLoggedIn ? <button onClick ={this.add} className = "btn"> Add to Cart </button> : <h4 className = "failure"> Please Log In to order. </h4> : <h4> Out of Stock </h4>}
+                            
                             <h3>Reviews</h3>
-                            {this.state.dltScs ? <h4>Review deleted.</h4> : null}
-                            {this.state.dltErr ? <h4>Could not delete review. Please try again.</h4> : null}
-                            <div>
+                            {this.props.isLoggedIn ? <Link to = {linkVal} className = "link"> Add a Review </Link> : null}
+                            {this.state.dltScs ? <h4 className = "success">Review deleted.</h4> : null}
+                            {this.state.dltErr ? <h4 className = "failure"> Could not delete review. Please try again.</h4> : null}
+                            <div className = "review_box">
                                 {reviews.length > 0 ? reviews : <h4>No Reviews yet...</h4>}
                             </div>
                         </div>

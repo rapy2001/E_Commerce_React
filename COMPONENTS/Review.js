@@ -18,12 +18,13 @@ class Review extends React.Component
     {
         let updLink = "/api/review/" + this.state.review._id + "/update";
             return(
-                <div>
-                    <h3>rating: {this.state.review.rating}</h3>
-                    <h3>text: {this.state.review.reviewText}</h3>
+                <div className = "review">
+                    <h3>{this.state.review.rating}</h3>
+                    <p> {this.state.review.reviewText}</p>
+                    <h5>by <i>{this.state.review.userDetails.username}</i></h5>
                     {this.state.review.userDetails.username === this.props.crntUser.username ? <div>
-                        <Link to = {updLink}>Update</Link>
-                        <button onClick = {()=>{this.props.delete(this.state.review._id)}}>Delete</button>
+                        <Link to = {updLink} className = "review_upd">Update</Link>
+                        <button onClick = {()=>{this.props.delete(this.state.review._id)}} className = "review_dlt">Delete</button>
                     </div> : null}
                     {this.state.dltErr ? <h4>Could not delete review.Please try again.</h4> : null}
                 </div>

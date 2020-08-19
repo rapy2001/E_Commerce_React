@@ -62,14 +62,13 @@ class ReviewForm extends React.Component
     render()
     {
         return(
-            <div>
-                <div>
-
-                </div>
-                <div>
+            <div className = " register review_form">
+                <div className = "register_box_2">
                     {this.state.scs ? <h4> Review added successfully. You will be redirected shortly </h4> : null}
                     {this.state.err ? <h4> Review could not be added. Please try again </h4> : null}
-                    <form onSubmit = {this.handleSubmit}>
+                    
+                    <form onSubmit = {this.handleSubmit} className = "form">
+                        <h3>Add  Review</h3>
                         <input 
                             type = "text" 
                             placeholder = "Your Review" 
@@ -89,6 +88,9 @@ class ReviewForm extends React.Component
                         />
                         <button type = "submit">Add Review</button>
                     </form>
+                </div>
+                <div className = "register_box_1 review_form_box_1">
+                    <h1>Gadget Point</h1>
                 </div>
             </div>
         )

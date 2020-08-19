@@ -12,7 +12,8 @@ class ReviewUpdate extends React.Component
             rating:0,
             scs:false,
             err:false,
-            svrErr:false
+            svrErr:false,
+            ld:true
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,6 +28,7 @@ class ReviewUpdate extends React.Component
                 data:res.data.review,
                 reviewText:res.data.review.reviewText,
                 rating:res.data.review.rating,
+                ld:false
             })
         })
         .catch((err)=>{
@@ -82,21 +84,21 @@ class ReviewUpdate extends React.Component
         console.log(this.state.data)
         if(this.state.svrErr === false)
         {
-            if(this.state.data)
+            if(this.state.ld ===false)
             {
                 if(this.props.isLoggedIn)
                 {
-                    if(this.props.crntUser.username === this.data.userDetails.username)
+                    if(this.props.crntUser.username === this.state.data.userDetails.username)
                     {
                         return(
-                            <div>
-                                <div>
-                
+                            <div className = "register review_upd">
+                                <div className = "register_box_1 review_upd_box_1">
+                                    <h1>Gadget Point</h1>
                                 </div>
-                                <div>
+                                <div className = "register_box_2">
                                     {this.state.scs ? <h4> Review updated successfully. You will be redirected shortly </h4> : null}
                                     {this.state.err ? <h4> Review could not be updated. Please try again </h4> : null}
-                                    <form onSubmit = {this.handleSubmit}>
+                                    <form onSubmit = {this.handleSubmit} className = "form">
                                         <h3>Update review</h3>
                                         <input 
                                             type = "text" 
@@ -115,7 +117,7 @@ class ReviewUpdate extends React.Component
                                         min = "0"
                                         step = "1"
                                         />
-                                        <button type = "submit">Add Review</button>
+                                        <button type = "submit">Update Review</button>
                                     </form>
                                 </div>
                             </div>
@@ -139,6 +141,14 @@ class ReviewUpdate extends React.Component
                     )
                 }
                 
+            }
+            else
+            {
+                return(
+                    <div>
+                        <h4>Loading...</h4>
+                    </div>
+                )
             }
             
         }
