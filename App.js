@@ -13,6 +13,7 @@ import ReviewUpdate from "./COMPONENTS/ReviewUpdate";
 import GadgetUpdate from "./COMPONENTS/GadgetUpdate";
 import UserCart from "./COMPONENTS/UserCart";
 import Footer from "./COMPONENTS/Footer";
+import Seatch from "./COMPONENTS/Search";
 import Error from "./COMPONENTS/Error";
 import "./style.css";
 class App extends React.Component
@@ -172,6 +173,7 @@ class App extends React.Component
                                 }}/>)
                             }
                         }}/>
+                        <Route path = "/api/search" exact component = {Seatch}/>
                         <Route component={Error}/>
                     </Switch>
                     <Footer />

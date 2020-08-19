@@ -32,6 +32,7 @@ class Nav extends React.Component
                     <h4><Link to="/api/gadgets/laptops/all">Laptops</Link></h4>
                     {this.props.isLoggedIn ? this.props.crntUser.username === "Admin" ? <h4><Link to="/api/gadgets/create">Gadget Create</Link></h4>:null:null}
                     {this.props.isLoggedIn ? <Link to ={linkVal}>Cart</Link> :null}
+                    <h4><Link to="/api/search">Search</Link></h4>
                 </div>
             </div>
         )

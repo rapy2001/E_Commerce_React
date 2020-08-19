@@ -19,6 +19,17 @@ class Register extends React.Component
         this.handleChange=this.handleChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
         this.rdr=this.rdr.bind(this);
+        this.redo = this.redo.bind(this);
+    }
+    redo()
+    {
+        this.setState({
+            nameErr:false,
+            scs:false,
+            err:false,
+            frmName:false,
+            frmPwd:false
+        })
     }
     rdr()
     {
@@ -37,24 +48,36 @@ class Register extends React.Component
             {
                 this.setState({
                     frmName:true,
+                    username:"",
+                    password:"",
+                    imageUrl:"",
                 })
             }
             else
             {
                 this.setState({
-                    frmName:false
+                    frmName:false,
+                    username:"",
+                    password:"",
+                    imageUrl:"",
                 })
             }
             if(this.state.password.length  < 5)
             {
                 this.setState({
                     frmPwd:true,
+                    username:"",
+                    password:"",
+                    imageUrl:"",
                 })
             }
             else
             {
                 this.setState({
                     frmPwd:false,
+                    username:"",
+                    password:"",
+                    imageUrl:"",
                 })
             }
         if(this.state.username.length > 0 && this.state.password.length >= 5)
@@ -75,6 +98,8 @@ class Register extends React.Component
                         nameErr:true,
                         scs:false,
                         err:false
+                    },()=>{
+                        setTimeout(this.redo,1000)
                     })
                 }
                 else if(res.data.flag===0)
@@ -106,10 +131,11 @@ class Register extends React.Component
                     <h1>Gadget Point</h1>
                 </div>
                 <div className ="register_box_2">
-                    <form onSubmit={this.handleSubmit}>
-                        {this.state.scs ? <h4>Registration Successfull</h4>:null}
-                        {this.state.err ? <h4>Internal Server Error. Please try again.</h4>:null}
-                        {this.state.nameErr ? <h4>Username already exists. Please try again.</h4>:null}
+                    
+                    <form onSubmit={this.handleSubmit} className ="form">
+                        {this.state.scs ? <h4 className = "success">Registration Successfull</h4>:null}
+                        {this.state.err ? <h4 className = "failure">Internal Server Error. Please try again.</h4>:null}
+                        {this.state.nameErr ? <h4 className = "failure">Username already exists. Please try again.</h4>:null}
                         <h3>Register</h3>
                         <input 
                             type="text" 
@@ -121,7 +147,7 @@ class Register extends React.Component
                             autoComplete="off"
                             required = "required"
                         />
-                        {this.state.frmName ? <h5>The username length should be atleast 3 characters long</h5> : null}
+                        {this.state.frmName ? <h5 className = "red">The username length should be atleast 3 characters long</h5> : null}
                         <input 
                             type="password" 
                             name="password"
@@ -132,17 +158,17 @@ class Register extends React.Component
                             autoComplete="off"
                             required = "required"
                         />
-                        {this.state.frmPwd ? <h5>The password length should be atleast 5 characters long</h5> : null}
+                        {this.state.frmPwd ? <h5 className = "red">The password length should be atleast 5 characters long</h5> : null}
                         <input 
                             type="text" 
-                            name="Image Url"
+                            name="imageUrl"
                             value={this.state.imageUrl} 
                             onChange={this.handleChange} 
                             placeholder="Image Url"
                             autoComplete="off"
                         />
                         <button type="submit">Submit</button>
-                        <h5>Already  have an account ? Then <Link to="/api/user/login"> Log In </Link></h5>
+                        <h5>Already  have an account ? Then <Link to="/api/user/login" className ="link"> Log In </Link></h5>
                     </form>
                 </div>
             </div>
