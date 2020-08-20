@@ -77,7 +77,7 @@ body{
     /* border:1px solid red; */
     box-sizing: border-box;
     width:25vw;
-    height:30vh;
+    min-height:30vh;
     padding:2rem 2rem;
     background-color:black;
     position:fixed;
@@ -160,8 +160,9 @@ body{
     font-family:var(--textFamily);
     box-sizing: border-box;
     width:25vw;
-    height:50vh;
+    min-height:50vh;
     padding-top:2rem;
+    padding-bottom:2rem;
 }
 .form h3{
     font-weight:100;
@@ -170,7 +171,7 @@ body{
     text-align:center;
     margin-bottom:2rem;
 }
-.form input{
+.form input,.form textarea{
     width:16vw;
     outline:none;
     font-family:var(--mainColor);
@@ -180,6 +181,9 @@ body{
     border:1.2px solid var(--mainColor);
     opacity:.5;
     transition:var(--tranVal);
+}
+.form textarea{
+    height:12vh;
 }
 .form input:hover{
     cursor:pointer;
@@ -225,15 +229,17 @@ body{
     color:red;
 }
 .success{
-    border:1.5px solid rgb(89, 179, 0);
+    border:1.5px solid var(--mainColor);
     box-sizing: border-box;
     height:7vh;
-    width:20vw;
+    min-width:20vw;
     display:flex;
     align-items: center;
-    color:rgb(89, 179, 0);
+    color:var(--mainColor);
+    font-weight:100;
     justify-content: center;
     margin-bottom:2rem;
+    padding:0rem 1.5rem;
 }
 .failure{
     border:1.5px solid red;
@@ -367,7 +373,7 @@ body{
     height:20vh;
 }
 .gadgetFull_container{
-    border:1px solid red;
+    /* border:1px solid red; */
     display:flex;
     font-family:var(--textFamily);
     box-sizing: border-box;
@@ -484,4 +490,32 @@ body{
     url("https://images.pexels.com/photos/250591/pexels-photo-250591.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size:cover;
     background-position:center center;
+}
+.gadgetCreate{
+    border:1px solid red;
+    box-sizing: border-box;
+    height:var(--myH);
+    padding:3rem;
+    background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+    url("https://images.pexels.com/photos/358532/pexels-photo-358532.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size:cover;
+    background-position:center center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.gadgetCreate form,.gadgetUpdate form{
+    background-color:white;
+}
+.gadgetUpdate{
+    background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+    url("https://images.pexels.com/photos/70346/leaves-green-shadow-play-royalty-free-70346.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size:cover;
+    background-position:center center;
+    box-sizing: border-box;
+    height:var(--myH);
+    padding:3rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }

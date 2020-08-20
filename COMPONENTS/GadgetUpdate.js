@@ -71,6 +71,7 @@ class GadgetUpdate extends React.Component
             imageUrl:this.state.imageUrl,
             description:this.state.description,
             price:this.state.price,
+            amount:this.state.amount
         }
         Axios.post(linkVal,{crntUser:this.props.crntUser, gadget:gadget, isLoggedIn:this.props.isLoggedIn})
         .then((res)=>{
@@ -143,10 +144,12 @@ class GadgetUpdate extends React.Component
                 if(this.props.crntUser.username ===  "Admin")
                 {
                     return(
-                        <div>
-                            {this.state.scs ? <h4>Gadget data updated successfully. You will be redirected shortly</h4> : null}
-                            {this.state.err ? <h4>Gadget data could not be updated. Please try again.</h4> : null}
-                            <form onSubmit = {this.handleSubmit}>
+                        <div className = "gadgetUpdate">
+                            
+                            <form onSubmit = {this.handleSubmit} className = "form">
+                                {this.state.scs ? <h4 className = "success">Gadget data updated successfully. You will be redirected shortly</h4> : null}
+                                {this.state.err ? <h4 className = "failure">Gadget data could not be updated. Please try again.</h4> : null}
+                                <h3>Update Gadget Details</h3>
                                 <input 
                                     type="text" 
                                     placeholder="Gadget Name" 

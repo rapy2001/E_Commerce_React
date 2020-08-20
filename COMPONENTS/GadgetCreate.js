@@ -10,7 +10,7 @@ class gadgetCreate extends React.Component
         this.state={
             gadgetName:"",
             imageUrl:"",
-            Type:0,
+            Type:1,
             description:"",
             amount:0,
             price:0,
@@ -54,12 +54,13 @@ class gadgetCreate extends React.Component
             Type:this.state.Type,
             description:this.state.description,
             price:this.state.price,
+            amount:this.state.amount
         }
         Axios.post(linkVal,{crntUser:this.props.crntUser, gadget:gadget})
         .then((res)=>{
             if(res.data.flag === 1)
             {
-                console.log(this.state);
+                // console.log(this.state);
                 this.setState({
                     gadgetName:"",
                     imageUrl:"",
@@ -86,10 +87,12 @@ class gadgetCreate extends React.Component
     render()
     {
         return(
-            <div>
-                {this.state.scs ? <h4>Gadget added to database successfully. You will be redirected shortly</h4> : null}
-                {this.state.err ? <h4>Gadget could not be added. Please try again.</h4> : null}
-                <form onSubmit = {this.handleSubmit}>
+            <div className = "gadgetCreate">
+                
+                <form onSubmit = {this.handleSubmit} className = "form">
+                    {this.state.scs ? <h4 className = "success">Gadget added to database successfully. You will be redirected shortly</h4> : null}
+                    {this.state.err ? <h4 className = "failure">Gadget could not be added. Please try again.</h4> : null}
+                    <h3>Add a New Gadget</h3>
                     <input 
                         type="text" 
                         placeholder="Gadget Name" 
@@ -109,7 +112,7 @@ class gadgetCreate extends React.Component
                     <textarea 
                         name = "description" 
                         placeholder = "Gadget Description" 
-                        onChange = {this.handleChnage}
+                        onChange = {this.handleChange}
                         value ={this.state.description}
                     >
                     </textarea>

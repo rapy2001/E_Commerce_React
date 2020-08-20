@@ -133,7 +133,7 @@ class GadgetFull extends React.Component
                         <div className = "gadgetFull_box_2">
                             {this.state.crtScs ? <h4 className = "success">Added to cart successfully</h4> : null}
                             {this.state.crtErr ? <h4 className = "failure">Could not add to  cart Please try again.</h4> : null}
-                            {this.props.isLoggedIn ? (this.props.crntUser.username === "Admin" ? <Link to ={updLink}>Update Details</Link>: null) :null}
+                            {this.props.isLoggedIn ? (this.props.crntUser.username === "Admin" ? <Link to ={updLink} className = "link">Update Details</Link>: null) :null}
                             <h1> {this.state.data.gadget.gadgetName} </h1>
                             <h3> $ {this.state.data.gadget.price} </h3>
                             {this.state.data.gadget.amount > 0 ? <h4> In Stock </h4> : <h4>Out of Stock </h4>}
