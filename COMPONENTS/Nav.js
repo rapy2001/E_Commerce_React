@@ -28,7 +28,7 @@ class Nav extends React.Component
                 <div className="nav_box_3">
                     <h1 className = "cut"><i className = "fa fa-times"></i></h1>
                     <h4><Link to="/api/user/register" className = "link_nav">Register</Link></h4>
-                    {this.props.isLoggedIn ? <button onClick = {this.props.logout}>Log Out</button> : <h4><Link to="/api/user/login" className = "link_nav">Log In</Link></h4>}
+                    {this.props.isLoggedIn ? <h4><button onClick = {this.props.logout}>Log Out</button></h4> : <h4><Link to="/api/user/login" className = "link_nav">Log In</Link></h4>}
                     <h4><Link to="/api/gadgets/phones/all" className = "link_nav">Phones</Link></h4>
                     <h4><Link to="/api/gadgets/laptops/all" className = "link_nav">Laptops</Link></h4>
                     {this.props.isLoggedIn ? this.props.crntUser.username === "Admin" ? <h4><Link to="/api/gadgets/create" className = "link_nav">Gadget Create</Link></h4>:null:null}

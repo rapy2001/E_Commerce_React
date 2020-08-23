@@ -16,6 +16,7 @@
 }
 body{
     margin-top:7vh;
+    overflow-x:hidden;
 }
 .nav{
     /* border:1px solid red; */
@@ -232,7 +233,7 @@ body{
     border:1.5px solid var(--mainColor);
     box-sizing: border-box;
     height:7vh;
-    min-width:20vw;
+    width:20vw;
     display:flex;
     align-items: center;
     color:var(--mainColor);
@@ -412,7 +413,7 @@ body{
     font-weight:100;
     margin-bottom:.5rem;
 }
-.btn{
+.btn,.payment button{
     border:1.5px solid var(--mainColor);
     background-color:transparent;
     color:var(--mainColor);
@@ -421,7 +422,7 @@ body{
     margin-bottom:3rem;
     margin-top:.5rem;
 }
-.btn:hover{
+.btn:hover,.payment button:hover{
     cursor:pointer;
     background-color:var(--mainColor);
     color:white;
@@ -492,7 +493,7 @@ body{
     background-position:center center;
 }
 .gadgetCreate{
-    border:1px solid red;
+    /* border:1px solid red; */
     box-sizing: border-box;
     height:var(--myH);
     padding:3rem;
@@ -518,4 +519,236 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
+}
+.cart_container{
+    /* border:1px solid red; */
+    box-sizing: border-box;
+    height:var(--myH);
+    display:flex;
+}
+.dashboard{
+    border-right:3px solid var(--subColor);
+    flex-shrink:0;
+    flex-basis:30%;
+    padding:2rem 1.5rem;
+    font-family:var(--textFamily);
+}
+.dashboard div{
+    /* border:1px solid red; */
+    display:flex;
+    justify-content: center;
+}
+.dashboard div img{
+    box-sizing: border-box;
+    width:7rem;
+    height:7rem;
+    border-radius:50%;
+    padding:.3rem;
+    box-shadow:0px 5px 5px rgba(0,0,0,.5);
+}
+.dashboard h2{
+    color:var(--subColor);
+    font-weight:100;
+    margin-top:1rem;
+    text-align:center;
+}
+.cart_box{
+    /* border:1px solid red; */
+    flex-shrink:0;
+    flex-basis:70%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+.cartItem{
+    /* border:1px solid red; */
+    display:flex;
+    align-items:center;
+    box-sizing: border-box;
+    padding:.5rem 1.5rem;
+    font-family:var(--textFamily);
+    width:80%;
+    margin:0px auto;
+    margin-top:1.8rem;
+    margin-bottom:1.8rem;
+    transition: var(--tranVal);
+    background-color:white;
+    transform: scale(1);
+    border-bottom:1.5px solid var(--mainColor);
+}
+.cartItem:hover{
+    cursor:pointer;
+    box-shadow:0px 2px 3px rgba(0,0,0,.2);
+    transform: scale(1.05);
+    border-bottom:1.2px solid transparent;
+}
+.cartItem_name{
+    /* border:1px solid red; */
+    box-sizing: border-box;
+    width:15vw;
+    text-align:center;
+    font-weight:100;
+    color:var(--mainColor);
+    margin-left:5rem;
+    margin-right:5rem;
+}
+.cartItem_price{
+    /* border:1px solid red; */
+    box-sizing: border-box;
+    width:5vw;
+    text-align:center;
+    font-weight:100;
+    color:var(--mainColor);
+    margin-left:5rem;
+    margin-right:5rem;
+}
+.cartItem img{
+    box-sizing: border-box;
+    width:5rem;
+    height:5rem;
+    border-radius:.5rem;
+    padding:.3rem;
+}
+.cart_items{
+    /* border:1px solid red; */
+    width:80%;
+    box-sizing:border-box;
+    height:90%;
+}
+.payment{
+    /* border:1px solid red; */
+    box-sizing: border-box;
+    font-family:var(--textFamily);
+    /* width:20%; */
+    text-align: center;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    margin-top:2rem;
+    padding:1rem 2rem;
+}
+.payment h4{
+    font-weight:100;
+    color:var(--subColor);
+    font-size:1.5rem;
+}
+.payment button{
+    margin:0rem;
+}
+.cartItem_btn{
+    /* border:1px solid red; */
+    box-sizing: border-box;
+    width:10vw;
+    display:flex;
+    box-sizing: border-box;
+    display:flex;
+    align-items:center;
+    color:var(--mainColor);
+}
+.cartItem_btn button{
+    background:transparent;
+    outline:none;
+    box-sizing: border-box;
+    width:2.5rem;
+    height:2.5rem;
+    font-size:1.5rem;
+    color:var(--mainColor);
+    border:1.5px solid var(--mainColor);
+    margin-left:1.5rem;
+    margin-right:1.5rem;
+    transition: var(--tranVal);
+    border-radius:50%;
+}
+.cartItem_btn button:hover{
+    cursor:pointer;
+    background-color:var(--mainColor);
+    color:white;
+}
+.cart_items_cart{
+    /* border:1px solid red; */
+    box-sizing: border-box;
+    height:85%;
+    overflow-y:auto;
+}
+.cart_msg{
+    /* border:1px solid red; */
+    position:fixed;
+    top:10rem;
+    right:0rem;
+    font-family:var(--textFamily);
+}
+.cart_msg h4{
+    border:none;
+    border-left:3px solid var(--mainColor);
+    box-shadow:0px 2px 3px rgba(0,0,0,.3);
+}
+.homepage{
+    /* border:1px solid red; */
+    box-sizing:border-box;
+    height:var(--myH);
+    font-family:var(--textFamily);
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:3rem 0rem;
+}
+.homepage h2{
+    font-weight:100;
+    color:var(--mainColor);
+}
+.homepage p{
+    /* border:1px solid red; */
+    font-size:.8rem;
+    width:50%;
+    text-align: justify;
+    line-height:1.5;
+    margin-top:.8rem;
+    
+    margin-bottom:1.5rem;
+}
+.homepage_box_1{
+    /* border:1px solid red; */
+    display:flex;
+    /* height:calc(88vh / 2); */
+    padding:3rem 5rem;
+}
+.homepage_box_2{
+    /* border:1px solid red; */
+    display:flex;
+    /* height:calc(88vh / 2); */
+    padding:3rem 5rem;
+}
+.homepage_box_1_1,.homepage_box_1_2,.homepage_box_2_1,.homepage_box_2_2{
+    flex-shrink: 0;
+    flex-basis: 50%;
+}
+.homepage_box_2_1{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.homepage_box_1_2,.homepage_box_2_2{
+    /* border:1px solid red; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.homepage_box_1_2 div,.homepage_box_2_2 div{
+    /* border:1px solid red; */
+    box-sizing: border-box;
+    width:15rem;
+    height:15rem;
+    border-radius:50%;
+    padding:.8rem;
+    box-shadow:0px 3px 5px rgba(0,0,0,.5);
+    background-color:white;
+    background:url("https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");  
+    background-size:cover;
+    background-position:center center;
+}
+.homepage_box_2_2 div{
+    background:url("https://images.pexels.com/photos/191158/pexels-photo-191158.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); 
+    background-size:cover;
+    background-position:center center;
+
 }

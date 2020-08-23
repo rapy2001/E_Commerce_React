@@ -12,13 +12,15 @@ class CartItem extends React.Component
     render()
     {
         return(
-                <div>
-                    <h4>Name:{this.state.item.gadgetName}</h4>
-                    <h4>Price:{this.state.item.price}</h4>
+                <div className = "cartItem">
                     <img src ={this.state.item.imageUrl} alt ="error" />
-                    <h4>Amount:{this.state.item.amount}</h4>
-                    <button onClick ={()=>{this.props.upd(1,this.state.item.id)}}>PLUS</button>
-                    <button onClick ={()=>{this.props.upd(0,this.state.item.id)}}>MINUS</button>
+                    <h4 className = "cartItem_name">{this.state.item.gadgetName}</h4>
+                    <h4 className = "cartItem_price"> $ {this.state.item.price}</h4>
+                    <div className = "cartItem_btn">
+                        <button onClick ={()=>{this.props.upd(1,this.state.item.id)}}>+</button>
+                        <h4>{this.state.item.amount}</h4>
+                        <button onClick ={()=>{this.props.upd(0,this.state.item.id)}}>-</button>
+                    </div>
                 </div>         
         )
                           

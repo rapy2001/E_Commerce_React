@@ -19,6 +19,18 @@ class UserCart extends React.Component
         }
         this.upd = this.upd.bind(this);
         this.pay = this.pay.bind(this);
+        this.rst = this.rst.bind(this);
+    }
+    rst()
+    {
+        this.setState({
+            svrErr:false,
+            ovrFlw:false,
+            scs:false,
+            err:false,
+            pay:false,
+            payErr:false
+        });
     }
     pay()
     {
@@ -30,6 +42,8 @@ class UserCart extends React.Component
             this.setState({
                 pay:true,
                 cart:[]
+            },()=>{
+                setTimeout(this.rst,2000);
             })
         })
         .catch(()=>{
@@ -218,21 +232,32 @@ class UserCart extends React.Component
                             )
                         }
                         return(
-                            <div>
-                                <div> 
-                                    {this.state.pay ? <h4>Bill Paid successfully.</h4> : null} 
-                                    {this.state.payErr ? <h4>Bill could not be paid successfully. Please try again.</h4> : null}
+                            <div className = "cart_container">
+                                <div className  = "cart_msg"> 
+                                    {this.state.pay ? <h4 className  ="success">Bill Paid successfully.</h4> : null} 
+                                    {this.state.payErr ? <h4 className = "failure">Bill could not be paid successfully. Please try again.</h4> : null}
                                 </div>
-                                <div>
+                                <div className = "dashboard">
+                                    <div>
+                                        <img src = {this.state.userDetails.imageUrl} alt = "error"/>
+                                    </div>
                                     <h2>{this.state.userDetails.username}</h2>
                                 </div>
-                                <div>
+                                <div className = "cart_box">
                                     {cart.length > 0 
                                         ? 
-                                        <div>
-                                        {cart} {this.state.total} <button onClick ={()=>{this.pay()}}>Pay Bill</button></div> 
+                                        <div className = "cart_items">
+                                            <div className = "cart_items_cart">
+                                                {cart} 
+                                            </div>
+                                            <div className = "payment">
+                                                <h4> Total: $ {this.state.total} </h4>
+                                                <button onClick ={()=>{this.pay()}}>Pay Bill</button>
+                                            </div> 
+                                        </div>
+                                        
                                         : 
-                                        <h3>Cart is Empty</h3>
+                                        <h3 className = "failure">Cart is Empty</h3>
                                     }
                                 </div>
                             </div>
